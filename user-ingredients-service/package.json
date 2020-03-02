@@ -1,0 +1,39 @@
+{
+  "name": "prep-and-groc-server-with-microservices",
+  "version": "1.0.0",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha ./src/**.test.js",
+    "dev:server": "node ./src/bin/www/run.js",
+    "dev:local-server": "nodemon -r dotenv/config ./src/bin/www/run.js"
+  },
+  "dependencies": {
+    "@bit/agajlumbardh.prep-and-groc-validators.grocery": "^1.0.0",
+    "@bit/agajlumbardh.prep-and-groc-validators.fridge": "^1.0.0",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "mongoose": "^5.7.6",
+    "morgan": "~1.9.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "dotenv": "^7.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "faker": "^4.1.0",
+    "mocha": "^6.2.0",
+    "prettier": "^1.19.1"
+  },
+  "engines": {
+    "node": "10.16.3",
+    "npm": "6.9.0"
+  },
+  "author": "Lumbardh Agaj"
+}

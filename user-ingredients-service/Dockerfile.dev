@@ -1,0 +1,15 @@
+FROM node:10.16.3
+
+WORKDIR /prepandgroc/grocery-items-service
+
+COPY ./scripts/create_npm_registry_for_bit.sh ./app.js ./package.json ./
+
+COPY ./src ./src
+
+RUN ./create_npm_registry_for_bit.sh
+
+RUN npm install
+
+CMD ["npm","run","dev:server"]
+
+

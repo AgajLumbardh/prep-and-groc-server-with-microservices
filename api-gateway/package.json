@@ -1,0 +1,36 @@
+{
+  "name": "api-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API gateway for prep&groc services",
+  "main": "app.js",
+  "scripts": {
+    "dev:server": "node ./src/bin/www/run.js",
+    "dev:local-server": "nodemon -r dotenv/config ./src/bin/www/run.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "http-proxy-middleware": "^0.21.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.6",
+    "morgan": "~1.9.0"
+  },
+  "devDependencies": {
+    "dotenv": "^7.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "prettier": "^1.19.1"
+  },
+  "engines": {
+    "node": "10.16.3",
+    "npm": "6.9.0"
+  },
+  "author": "Lumbardh Agaj",
+  "license": "ISC"
+}

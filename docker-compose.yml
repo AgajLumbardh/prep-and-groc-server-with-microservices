@@ -1,0 +1,55 @@
+version: "3"
+services: 
+  database:
+    image: mongo:4.2.0    
+  users-service:
+    image: "prepandgroc-users-service"
+    build:
+      context: "./users-service"
+      dockerfile: "Dockerfile.dev"
+    env_file: "./users-service/.env"
+    environment: 
+      - PORT=5001
+      - DB_HOST=database
+    depends_on: 
+      - database
+  recipes-service:
+    image: "prepandgroc-recipes-service"
+    build:
+      context: "./recipes-service"
+      dockerfile: "Dockerfile.dev"
+    env_file: "./recipes-service/.env"
+    environment: 
+      - PORT=5002
+      - DB_HOST=database
+    depends_on: 
+      - database
+  user-ingredients-service:
+    image: "prepandgroc-user-ingredients-service"
+    build:
+      context: "./user-ingredients-service"
+      dockerfile: "Dockerfile.dev"
+    env_file: "./user-ingredients-service/.env"
+    environment: 
+      - PORT=5003
+      - DB_HOST=database
+    depends_on: 
+      - database  
+  api-gateway:
+    image: "prepandgroc-api-gateway"
+    build:
+      context: "./api-gateway/"
+      dockerfile: "Dockerfile.dev"
+    depends_on: 
+      - database
+    ports:
+      - "5000:5000"
+    env_file: "./api-gateway/.env"
+    environment: 
+      - USERS_SERVICE_HOST=users-service
+      - USERS_SERVICE_PORT=5001
+      - RECIPES_SERVICE_HOST=recipes-service
+      - RECIPES_SERVICE_PORT=5002
+      - USER_INGREDIENTS_SERVICE_HOST=user-ingredients-service
+      - USER_INGREDIENTS_SERVICE_PORT=5003
+      - DB_HOST=database

@@ -1,0 +1,24 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "skipFiles": ["<node_internals>/**"],
+      "env": {
+        "HOST": "localhost",
+        "PORT": "5003",
+        "DB_URI_PREFIX": "mongodb://",
+        "DB_HOST": "localhost",
+        "DB_PORT": "27017",
+        "DB_COLLECTION": "prepandgroc",
+        "JWT_SECRET_KEY": "ksmfksm"
+      },
+      "program": "${workspaceFolder}\\user-ingredients-service\\src\\bin\\www\\run.js"
+    }
+  ]
+}
